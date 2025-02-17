@@ -27,7 +27,7 @@ class TimePeriod extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){setOption(value);},
+      onTap: (){setOption(value, time);},
 	    child:ColoredBox(
 	      color: (value == groupValue)?Color(0x5F000000):Color(0x00000000),
 	      child: Padding(
