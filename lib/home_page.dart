@@ -22,18 +22,22 @@ class _HomePageState extends State<HomePage>{
 
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
-      color: _currentBg,
-      child: Column(
-        mainAxisAlignment:MainAxisAlignment.spaceBetween,
-        children:[
-
-          Text("top"),
-          TimerWidget(bgFunc:_changeBgColor),
-          Text("end"),
-        ],
-      )
-
+    return Scaffold( 
+	    body:ColoredBox(
+	      color: _currentBg,
+        child: SizedBox(
+          width: double.infinity,
+          height: double.infinity,
+		      child: Column(
+		        mainAxisAlignment:MainAxisAlignment.spaceBetween,
+		        children:[
+		          Text("top"),
+		          TimerWidget(bgFunc:_changeBgColor),
+		          Text("end"),
+		        ],
+		      )
+        )
+	    )
     );
   }
 

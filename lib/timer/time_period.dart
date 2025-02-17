@@ -28,13 +28,16 @@ class TimePeriod extends StatelessWidget{
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){setOption(value, time);},
-	    child:ColoredBox(
-	      color: (value == groupValue)?Color(0x5F000000):Color(0x00000000),
-	      child: Padding(
-	        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-	        child  : Text(title),
-	      ),
-	    )
+	    child:ClipRRect(
+        borderRadius: BorderRadius.circular(7),
+	      child: ColoredBox(
+		      color: (value == groupValue)?Color(0x5F000000):Color(0x00000000),
+		      child: Padding(
+		        padding: EdgeInsets.symmetric(vertical: 0, horizontal: 5),
+		        child  : Text(title),
+		      ),
+		    )
+      )
     );
   }
     

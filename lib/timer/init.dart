@@ -38,19 +38,24 @@ class _TimeeWidgetState extends State<TimerWidget>{
 	  ];
 
 
-	  return Container(
-      color: Color(0x5CFFFFFF),
-      padding: EdgeInsets.all(13),
-      child: Column(
-        mainAxisSize:MainAxisSize.min,
-        children: [
-          Row(
-            children: modes,
-          ),
-          Text(second2MinStr(_time))
-        ],
-      ),
-    );
+	  return ClipRRect(
+      borderRadius: BorderRadius.circular(10),
+	    child:Container(
+	      color: Color(0x5CFFFFFF),
+	      padding: EdgeInsets.all(13),
+	      child: Column(
+	        mainAxisSize:MainAxisSize.min,
+	        children: [
+	          Row(
+              spacing: 4,
+	            mainAxisSize:MainAxisSize.min,
+	            children: modes,
+	          ),
+	          Text(second2MinStr(_time),style: TextStyle(fontSize:60),)
+	        ],
+	      ),
+	    )
+	  );
       
   }
   
