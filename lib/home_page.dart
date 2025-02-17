@@ -1,10 +1,8 @@
 import "package:flutter/material.dart";
 import 'package:pomo/timer/init.dart';
+import 'varbs.dart' show pomoColor, shortBreakColor, longBreakColor;
 
 
-const pomoColor       = Color(0xFFBA4949);
-const shortBreakColor = Color(0xFF38858A);
-const longBreakColor  = Color(0xFF397097);
 
 
 
