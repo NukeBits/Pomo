@@ -47,7 +47,7 @@ class _TimeeWidgetState extends State<TimerWidget>{
 	            children: modes,
 	          ),
             // Use ValueKey to force ClockWidget to reload.
-	          ClockWidget(timePeriod: _time, key: ValueKey(_time),)
+	          ClockWidget(timePeriod: _time, key: ValueKey(_groupValue),)
 	        ],
 	      ),
 	    )
