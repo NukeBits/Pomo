@@ -31,7 +31,7 @@ class TimePeriod extends StatelessWidget{
 	    child:ClipRRect(
         borderRadius: BorderRadius.circular(7),
 	      child: ColoredBox(
-		      color: (value == groupValue)?Color(0x5F000000):Color(0x00000000),
+		      color: (value == groupValue)?Color(0x5F000000):Color(0x00000000), // black: opacity 40% || 0% .
 		      child: Padding(
 		        padding: EdgeInsets.symmetric(vertical: 0, horizontal: 5),
 		        child  : Text(title),
