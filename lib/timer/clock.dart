@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:pomo/utils/time.dart' show second2MinArray;
+import 'package:audioplayers/audioplayers.dart';
 
+ 
 
 const updateRate = 1;
+
+AudioPlayer _player = AudioPlayer();
+
 
 
 
@@ -34,13 +39,24 @@ class _ClockState extends State<ClockWidget>{
   
   @override
   Widget build(BuildContext context) {
+    // if time becames 0.
+    if (widget.timePeriod-_time-_passedTime <= 0){
+      _player.play(AssetSource("sound_effects/clock_alarm1.mp3"));
+      return Column(
+        mainAxisSize:MainAxisSize.min,
+        children: [
+          TimeDisplay(time2Display:0),
+        ],
+      );
+    }
+
     display(); // to insure display() will always be called as long _paused = false.
     return Column(
       mainAxisSize:MainAxisSize.min,
       children: [
         // _time       : Used only for refreshing the clock.
         // _passedTime : Sum of all the periods from start->pause clicks.
-        TimeDisplay(timeLeft:widget.timePeriod-_time-_passedTime), 
+        TimeDisplay(time2Display:widget.timePeriod-_time-_passedTime), 
         GestureDetector(
           onTap: (_paused)?(){start();}:(){pause();}, // choose the right event.
           child: Text((_paused)?"Start":"Pause"),     
@@ -83,6 +99,7 @@ class _ClockState extends State<ClockWidget>{
     
   }
 }
+  
 
 
   
@@ -92,15 +109,15 @@ class _ClockState extends State<ClockWidget>{
 //-------------------------------------------------------------------------------------
 
 class TimeDisplay extends StatelessWidget{
-  final int timeLeft;
+  final int time2Display;
 
 
-  TimeDisplay({required this.timeLeft});
+  TimeDisplay({required this.time2Display});
 
 
   @override
   Widget build(BuildContext context) {
-    final inMin = second2MinArray(timeLeft); // 305sec -> [5min, 5sec].
+    final inMin = second2MinArray(time2Display); // 305sec -> [5min, 5sec].
     return Row(
       crossAxisAlignment: CrossAxisAlignment.baseline,
       textBaseline: TextBaseline.alphabetic,
